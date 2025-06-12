@@ -6,7 +6,7 @@ public class PageObjectManager {
 
     private WebDriver driver;
     private LoginPage loginPage;
-    private HomePage homePage;
+    private EventsPage eventsPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -17,8 +17,8 @@ public class PageObjectManager {
         return loginPage;
     }
 
-    public HomePage getHomePage() {
-        homePage = new HomePage(driver);
-        return homePage;
+    public EventsPage getEventsPage() {
+        eventsPage = new EventsPage(driver);
+        return eventsPage;
     }
 }

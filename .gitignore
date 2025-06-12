@@ -39,3 +39,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+#Credentials
+/src/test/resources/credentials.properties
