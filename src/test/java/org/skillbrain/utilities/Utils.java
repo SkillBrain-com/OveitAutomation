@@ -11,6 +11,8 @@ public class Utils {
 
     private WebDriver driver;
 
+    public Utils() {
+    }
 
     public Utils(WebDriver driver) {
         this.driver = driver;

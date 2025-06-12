@@ -17,6 +17,9 @@ public class TestContextSetup {
         utils = new Utils(driver);
     }
 
+    public Utils getUtils() {
+        return utils;
+    }
 
     public WebdriverConfiguration getWebdriverConfiguration() {
         return webdriverConfiguration;

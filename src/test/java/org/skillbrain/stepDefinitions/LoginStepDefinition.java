@@ -1,10 +1,11 @@
 package org.skillbrain.stepDefinitions;
 
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
+import io.cucumber.java.en.Then;
 import org.skillbrain.pageObjects.LoginPage;
 import org.skillbrain.utilities.TestContextSetup;
+
+import java.io.IOException;
 
 public class LoginStepDefinition {
 
@@ -17,15 +18,17 @@ public class LoginStepDefinition {
     }
 
     @Given("I login with {string} credentials")
-    public void iLoginWithValidCredentials(String credentials) {
+    public void iLoginWithValidCredentials(String credentials) throws IOException {
+        loginPage.loginWithCredentials(credentials);
+    }
+
+    @Given("I navigate to Oveit link")
+    public void iNavigateToOveitLink() {
         loginPage.navigateToUrl();
     }
 
-    @When("I go to checkout page")
-    public void i_go_to_checkout_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("The login error message is displayed")
+    public void theLoginErrorMessageIsDisplayed() {
+        loginPage.checkErrorMessage();
     }
-
-
 }
