@@ -30,7 +30,23 @@ public class LoginPage {
     private WebElement loginButton;
     @FindBy(css = ".toastify.on.danger.toastify-right.toastify-bottom")
     private WebElement errorPopup;
+    @FindBy(xpath = "//input[@id='email'] //following-sibling::div")
+    private WebElement emailErrorMessage;
+    @FindBy(xpath = "//input[@id='password'] //following-sibling::div")
+    private WebElement passwordErrorMessage;
 
+
+    public void clickOnLogin() {
+        loginButton.click();
+    }
+
+    public void fillInEmail(String email) {
+        emailTextbox.sendKeys(email);
+    }
+
+    public void fillInPassword(String pass) {
+        passwordTextbox.sendKeys(pass);
+    }
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -48,6 +64,15 @@ public class LoginPage {
         Assert.assertTrue(errorPopup.isDisplayed());
     }
 
+    //    //input[@id='email'] //parent::div //div
+//         //input[@id='email'] //following-sibling::div
+    public void checkEmailErrorMessage(String errorMessage) {
+        Assert.assertEquals(emailErrorMessage.getText().toLowerCase(), errorMessage.toLowerCase());
+    }
+
+    public void checkPasswordErrorMessage(String errorMessage) {
+        Assert.assertEquals(passwordErrorMessage.getText().toLowerCase(), errorMessage.toLowerCase());
+    }
 
     private void fillinUserDetails(String credentials) throws IOException {
         Properties properties = new Properties();
