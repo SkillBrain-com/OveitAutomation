@@ -24,4 +24,12 @@ public class Utils {
         driverWait.until(ExpectedConditions.presenceOfElementLocated(xpath));
     }
 
+    public void refreshPage() {
+        driver.navigate().refresh();
+    }
+
+    public void backButton() {
+        driver.navigate().back();
+    }
+
 }
