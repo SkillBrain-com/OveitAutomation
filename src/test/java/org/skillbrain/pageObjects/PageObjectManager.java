@@ -7,6 +7,7 @@ public class PageObjectManager {
     private WebDriver driver;
     private LoginPage loginPage;
     private EventsPage eventsPage;
+    private BundlePage bundlePage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -20,5 +21,10 @@ public class PageObjectManager {
     public EventsPage getEventsPage() {
         eventsPage = new EventsPage(driver);
         return eventsPage;
+    }
+
+    public BundlePage getBundlePage() {
+        bundlePage = new BundlePage(driver);
+        return bundlePage;
     }
 }
